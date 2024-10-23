@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:16:35 by lgasc             #+#    #+#             */
-/*   Updated: 2024/10/18 17:31:26 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/10/23 12:54:52 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 
 Brain::Brain	(void)
 {	std::cout << FAINT "Conception of brain..."			RESET << std::endl; }
-Brain::Brain	(const Brain & original) : ideas (original.ideas)
-{	std::cout << FAINT "Copy-Conception of a brain..."	RESET << std::endl; }
+Brain::Brain	(const Brain & original) {
+	std::cout << FAINT "Copy-Conception of a brain..."	RESET << std::endl;
+	for (size_t i = 0; i < size; ++ i) ideas [i] = original.ideas [i];
+}
 Brain			& Brain::operator = (const Brain & other) {
 	std::cout << FAINT "A brain copies another..."		RESET << std::endl;
 	for (size_t i = 0; i < size; ++ i) ideas [i] = other.ideas [i];
