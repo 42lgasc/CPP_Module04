@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:27:23 by lgasc             #+#    #+#             */
-/*   Updated: 2024/10/18 17:01:35 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/10/25 23:47:50 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ Cat::Cat	(void)			: Animal (	), brain (new Brain)
 {	std::cout << FAINT "\\ A cat it be..."				RESET << std::endl; }
 Cat::Cat	(const Cat & c)	: Animal (c	), brain (new Brain (*c.brain))
 {	std::cout << FAINT "\\ A cat copy it be..."			RESET << std::endl; }
-Cat			& Cat::operator = (const Cat & c) {
+Cat			& Cat::operator = (const Cat & other) {
+	if (& other == this) return *this;
 	std::cout << FAINT "/ The copying of a cat:"		RESET << std::endl;
-	Animal::operator = (c);
+	Animal::operator = (other);
+	const Brain *const	& b = new Brain (*other.brain);
 	delete brain;
-	brain = new Brain (*c.brain);
+	brain = b;
 	return *this;
 }
 Cat::~ Cat	(void) {

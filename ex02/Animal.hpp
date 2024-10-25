@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 17:49:24 by lgasc             #+#    #+#             */
-/*   Updated: 2024/10/23 12:57:51 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/10/25 23:25:11 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ protected:
 
 	Animal				(void);
 	Animal				(const Animal &);
+	// Wear your PPE: Privacy Prevents Erosion! ~~lgasc 2024-10-25 22:21
 	Animal				& operator = (const Animal &);
 public:
 	virtual ~ Animal	(void) = 0;

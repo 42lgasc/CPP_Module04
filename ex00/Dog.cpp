@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:27:02 by lgasc             #+#    #+#             */
-/*   Updated: 2024/10/17 23:33:11 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/10/25 23:49:55 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ Dog::Dog	(void)			: Animal ()
 {	std::cout << FAINT "\\ A dog it be..."				RESET << std::endl; }
 Dog::Dog	(const Dog & c)	: Animal (c)
 {	std::cout << FAINT "\\ A dog copy it be..."			RESET << std::endl; }
-Dog			& Dog::operator = (const Dog & c) {
+Dog			& Dog::operator = (const Dog & other) {
+	if (& other == this) return *this;
 	std::cout << FAINT "/ The copying of a dog:"		RESET << std::endl;
-	Animal::operator = (c);
+	Animal::operator = (other);
 	return *this;
 }
 Dog::~ Dog	(void)

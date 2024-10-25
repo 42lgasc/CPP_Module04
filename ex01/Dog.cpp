@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:27:02 by lgasc             #+#    #+#             */
-/*   Updated: 2024/10/18 16:59:10 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/10/25 23:47:43 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ Dog::Dog	(void)			: Animal (	), brain (new Brain)
 {	std::cout << FAINT "\\ A dog it be..."				RESET << std::endl; }
 Dog::Dog	(const Dog & d)	: Animal (d	), brain (new Brain (*d.brain))
 {	std::cout << FAINT "\\ A dog copy it be..."			RESET << std::endl; }
-Dog			& Dog::operator = (const Dog & d) {
+Dog			& Dog::operator = (const Dog & other) {
+	if (& other == this) return *this;
 	std::cout << FAINT "/ The copying of a dog:"		RESET << std::endl;
-	Animal::operator = (d);
+	Animal::operator = (other);
+	const Brain *const	& b = new Brain (*other.brain);
 	delete brain;
-	brain = new Brain (*d.brain);
+	brain = b;
 	return *this;
 }
 Dog::~ Dog	(void) {

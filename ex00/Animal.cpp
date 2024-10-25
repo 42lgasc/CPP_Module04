@@ -6,7 +6,7 @@
 /*   By: lgasc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:26:34 by lgasc             #+#    #+#             */
-/*   Updated: 2024/10/17 23:38:26 by lgasc            ###   ########.fr       */
+/*   Updated: 2024/10/25 23:49:14 by lgasc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ Animal::Animal		(void)
 {	std::cout << FAINT "An animal appears..."		RESET << std::endl; }
 Animal::Animal		(UNUSED const Animal & a)
 {	std::cout << FAINT "An animal copy appears..."	RESET << std::endl; }
-Animal				& Animal::operator = (UNUSED const Animal & a) {
+Animal				& Animal::operator = (const Animal & other) {
+	if (& other == this) return *this;
 	std::cout << FAINT "An animal copies another."	RESET << std::endl;
 	return *this;
 }
