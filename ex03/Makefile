@@ -6,7 +6,7 @@
 #    By: lgasc <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/08 18:19:19 by lgasc             #+#    #+#              #
-#    Updated: 2024/11/06 00:26:18 by lgasc            ###   ########.fr        #
+#    Updated: 2024/11/28 23:44:42 by lgasc            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -183,7 +183,7 @@ clean:
 	 do if [ -f $$o ]; then if [ -z $$rm ]; then echo -n $(RM_S)$$o;\
 	   else echo -n $(RM_M)$$o; fi; rm=+; rm $$o; fi done; if [ -n ''$$rm ];\
 	 then echo $(RM_E); else echo '$(G_Y)No object file to remove.$(RESET)'; fi
-	if [ -z "$(filter re, $(MAKECMDGOALS))"];\
+	if [ -z "$(filter re, $(MAKECMDGOALS))" ];\
 	 then if [ -f $(DEP) ]; then echo $(RM_S)$(DEP)$(RM_E); rm $(DEP);\
 	  else echo '$(G_Y)No dependency file to remove.$(RESET)'; fi fi
 
